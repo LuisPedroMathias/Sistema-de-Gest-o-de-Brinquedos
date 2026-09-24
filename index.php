@@ -29,8 +29,8 @@ if (!$brinquedos) {
 
         <h2>Cadastrar Brinquedo!</h2>
         <form action="public/cadastrar_brinquedo.php" method="POST">
-            <label for="nome_brinquedo">Nome:</label>
-            <input type="text" id="nome_brinquedo" name="nome_brinquedo" required>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
             <br>
             <label for="categoria">Categoria:</label>
             <input type="text" id="categoria" name="categoria" required>
@@ -39,10 +39,10 @@ if (!$brinquedos) {
             <input type="text" id="faixa_etaria" name="faixa_etaria" required>
             <br>
             <label for="preco">Preço:</label>
-            <input type="number" id="preco" name="preco" step="0.01" required> 
+            <input type="number" id="preco" name="preco" step="0.01" required>
             <br>
-            <label for="quantidade">Quantidade em Estoque:</label>
-            <input type="number" id="quantidade" name="quantidade" step="1" required>
+            <label for="quantidade_estoque">Quantidade em Estoque:</label>
+            <input type="number" id="quantidade_estoque" name="quantidade_estoque" step="1" required>
             <br>
             <button type="submit">Cadastrar</button>
         </form>
@@ -60,17 +60,17 @@ if (!$brinquedos) {
                     <th>Ações</th>
                 </tr>
 
-                <?php while ($brinquedos = mysqli_fetch_assoc($brinquedos)) { ?>
+                <?php while ($brinquedo = mysqli_fetch_assoc($brinquedos)) { ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($brinquedos["id_brinquedo"]) ?></td>
-                        <td><?php echo htmlspecialchars($brinquedos["nome"]) ?></td>
-                        <td><?php echo htmlspecialchars($brinquedos["categoria"]) ?></td>
-                        <td><?php echo htmlspecialchars($brinquedos["faixa_etaria"]) ?></td>
-                        <td><?php echo number_format($brinquedos["preco"], 2, ',', '.') ?></td>
-                        <td><?php echo htmlspecialchars($brinquedos["quantidade_estoque"]) ?></td>
+                        <td><?php echo htmlspecialchars($brinquedo["id_brinquedo"]) ?></td>
+                        <td><?php echo htmlspecialchars($brinquedo["nome"]) ?></td>
+                        <td><?php echo htmlspecialchars($brinquedo["categoria"]) ?></td>
+                        <td><?php echo htmlspecialchars($brinquedo["faixa_etaria"]) ?></td>
+                        <td><?php echo number_format($brinquedo["preco"], 2, ',', '.') ?></td>
+                        <td><?php echo htmlspecialchars($brinquedo["quantidade_estoque"]) ?></td>
                         <td>
-                            <a href="public/editar.php?idbrinquedo=<?php echo urlencode($brinquedos["id_brinquedo"]) ?>">Editar</a>
-                            <a href="public/deletar.php?idbrinquedo=<?php echo urlencode($brinquedos["id_brinquedo"]) ?>">Excluir</a>
+                            <a href="public/editar.php?idbrinquedo=<?php echo urlencode($brinquedo["id_brinquedo"]) ?>">Editar</a>
+                            <a href="public/deletar.php?idbrinquedo=<?php echo urlencode($brinquedo["id_brinquedo"]) ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php } ?>
