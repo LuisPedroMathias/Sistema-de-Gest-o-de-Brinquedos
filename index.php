@@ -69,8 +69,8 @@ if (!$brinquedos) {
                         <td><?php echo number_format($brinquedo["preco"], 2, ',', '.') ?></td>
                         <td><?php echo htmlspecialchars($brinquedo["quantidade_estoque"]) ?></td>
                         <td>
-                            <a href="public/editar.php?idbrinquedo=<?php echo urlencode($brinquedo["id_brinquedo"]) ?>">Editar</a>
-                            <a href="public/deletar.php?idbrinquedo=<?php echo urlencode($brinquedo["id_brinquedo"]) ?>">Excluir</a>
+                            <a href="public/editar.php?id_brinquedo=<?php echo urlencode($brinquedo["id_brinquedo"]) ?>">Editar</a>
+                            <a href="public/deletar.php?id_brinquedo=<?php echo urlencode($brinquedo["id_brinquedo"]) ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php } ?>
